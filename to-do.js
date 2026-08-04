@@ -3,6 +3,7 @@ let caption = document.querySelector(".caption")
 let tamplete = document.querySelector(".tamplete")
 let post = document.querySelector(".post-bttn")
 let updateButton = document.querySelector(".updateButton")
+let emt = document.querySelector(".emt")
 
 let arr = []
 var indexExtra;
@@ -39,7 +40,9 @@ arr[indexExtra].caption = caption.value
 function display(){
 
     arr.map(item=> {
-
+if(!item.name || !item.caption ){
+emt.innerHTML = "Please Enter Name and Caption..."
+}else{
 tamplete.innerHTML += `<div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">${item.name}</h5>
@@ -47,8 +50,9 @@ tamplete.innerHTML += `<div class="card" style="width: 18rem;">
     <button type="button" class="btn btn-primary edit">Edit</button>
     <button type="button" class="btn btn-danger delete">Delete</button>
   </div>
-</div>`
+</div>` }
 })
+
 
 
 
